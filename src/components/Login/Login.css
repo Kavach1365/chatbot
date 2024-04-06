@@ -1,0 +1,93 @@
+.login-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.image {
+  height: 100vh;
+  width: 60vw;
+}
+
+.input-container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw;
+}
+
+.ayumitra-text {
+  color: #ffffff;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.form-container {
+  width: 25vw;
+}
+
+.username-password-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff;
+  padding: 13px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.icon {
+  color: #ffffff;
+  margin-right: 12px;
+}
+
+.input-field {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 160px;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2148c0;
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 6px;
+  margin: 0px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  height: 32px;
+}
+
+.forgot-password-container {
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  justify-self: right;
+}
+
+.forgot-password {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: #ffffff;
+  margin-right: 20px;
+}
+
+.to-signup-page {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  margin: auto;
+  margin-top: 22px;
+}
