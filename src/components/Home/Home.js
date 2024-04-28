@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./Home.css";
+import Bot from "../Bot/Bot";
 
 export default function Home() {
   const history = useNavigate();
@@ -18,10 +19,10 @@ export default function Home() {
   };
   return (
     <div>
-      <h1>Home</h1>
-      <button type="button" onClick={logout} className="logout-button">
+      {/* <button type="button" onClick={logout} className="logout-button">
         Logout
-      </button>
+      </button> */}
+      <Bot />
     </div>
   );
 }

@@ -27,6 +27,7 @@ app.post("/login", async (req, res) => {
         const secretKey = "Ayumitra";
         const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
         // console.log(token);
+        res.status(200);
         res.json(token);
       } else {
         res.status(400);
@@ -63,6 +64,7 @@ app.post("/signup", async (req, res) => {
       const secretKey = "Ayumitra";
       const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
       // console.log(token);
+      res.status(200);
       res.json(token);
       //res.json("notexist");
     }
