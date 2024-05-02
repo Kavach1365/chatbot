@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./Bot.css";
 import { useNavigate, Link } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -6,8 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 import { MdOutlineHome } from "react-icons/md";
 import { FaLocationArrow } from "react-icons/fa";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
-
+import BotOutput from "./BotOutput";
 const Bot = () => {
+  const chatContainerRef = useRef(null);
   const [chatHistory, setChatHistory] = useState([]);
   const [userInput, setUserInput] = useState("");
   const defaultQuestions = [
@@ -29,6 +30,15 @@ const Bot = () => {
       history("/login");
     }
   });
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatHistory]);
+
+  useEffect(() => {
+    scrollToBottom(); // Scroll to bottom when component mounts
+  }, []); // Empty dependency array ensures this effect runs only once
+
   const logout = () => {
     Cookies.remove("jwt_token");
     history("/login");
@@ -127,6 +137,13 @@ const Bot = () => {
     );
   }
 
+  function scrollToBottom() {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  }
+
   return (
     <div className="outer-container">
       <div className="theme-bg-container">
@@ -150,19 +167,16 @@ const Bot = () => {
         {chatHistory.length === 0 ? (
           handleStartingState()
         ) : (
-          <div className="chat-box" id="chat-box">
+          <div className="chat-box" ref={chatContainerRef} id="chat-box">
             {chatHistory.map((chat, index) => {
               if (chat.sender === "bot") {
-                return handleBotOutput(chat);
+                return <BotOutput chat={chat} />;
               } else {
                 return handleUserOutput(chat);
               }
             })}
           </div>
         )}
-        {/* <p className="copy-right-text">
-          Chatbot Library UPI Verion 1.3.1. Copyright 2024. Team Ayumitra
-        </p> */}
         <div className="input-bg-container">
           <input
             type="text"
